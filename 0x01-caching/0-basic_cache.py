@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-0-basic_cache.py
+0-basic_cache.py script
 
 BasicCache module - a simple caching system with no limit.
 """
