@@ -3,20 +3,19 @@
 This script setups a basic Flask app. Serves a single route,
 that renders a welcome page.
 """
-
 from flask import Flask, render_template
 
 
-app: Flask = Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/')
 def get_index() -> str:
     """
-    Render the index page with a welcome message.
+    Render the index page witha welcome message.
     """
     return render_template('0-index.html')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()
