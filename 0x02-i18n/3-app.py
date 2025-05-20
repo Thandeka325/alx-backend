@@ -43,3 +43,7 @@ def index() -> str:
     Render the index page with localized messages.
     """
     return render_template('3-index.html')
+
+
+if __name__ == '__main__':
+    app.run()
