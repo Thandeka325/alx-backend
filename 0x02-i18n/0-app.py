@@ -11,7 +11,7 @@ app: Flask = Flask(__name__)
 
 
 @app.route('/')
-def index() -> str:
+def get_index() -> str:
     """
     Render the index page with a welcome message.
     """
