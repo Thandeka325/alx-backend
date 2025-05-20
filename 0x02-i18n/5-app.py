@@ -3,8 +3,8 @@
 Flask app with simulated user login system and internationalization.
 """
 
-from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
+from flask import Flask, render_template, request, g
 from typing import Optional, Dict
 
 
