@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """
-This is a Flask app with i18n that supports using Flask-Babel
+This script is a Flask app with i18n that supports using flask-babel
 and parameterized translations
 """
-
+from flask_babel import Babel
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
 
 
 class Config:
@@ -19,26 +18,21 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app: Flask = Flask(__name__)
+app = Flask(__name__)
 app.config.from_object(Config)
-
-
-babel: Babel = Babel(app)
+babel = Babel(app)
 
 
 @babel.localeselector
 def get_locale() -> str:
     """
-    Selects the best matching language
-
-    Returns:
-        The best match language code as a string.
+    Select the best matching language
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route('/')
-def index() -> str:
+def get_index() -> str:
     """
     Render the index page with localized messages.
     """
