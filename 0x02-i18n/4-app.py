@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A Flask app with i18n support and URL-based locale override.
+A Flask app with i18n support and url-based locale override.
 """
 from flask_babel import Babel
 from flask import Flask, render_template, request
@@ -16,14 +16,13 @@ class Config:
 
 
 app = Flask(__name__)
-app.config.from_object(Config)
-babel = Babel(app)
+app.config.from_object(Config)babel = Babel(app)
 
 
 @babel.localeselector
 def get_locale() -> str:
     """
-    Determines the best match locale from the request.
+    Determines the best match locale from the request query.
     """
     queries = request.query_string.decode('utf-8').split('&')
     query_table = dict(map(
@@ -39,7 +38,7 @@ def get_locale() -> str:
 @app.route('/')
 def get_index() -> str:
     """
-    Renders the index page.
+    Render the index page
     """
     return render_template('4-index.html')
 
